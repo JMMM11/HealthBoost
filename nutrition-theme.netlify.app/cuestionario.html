@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HEALTHBOOST questionnaire with weighted scores for nutrition, mental wellness and physical activity.">
+  <title>Questionnaire - HEALTHBOOST</title>
+  <link rel="icon" href="assets/images/descarga.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body class="nav-solid">
+  <!-- ========== NAVBAR ========== -->
+  <nav id="mainNav" class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html#hero">HEALTH<span>BOOST</span></a>
+      <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+        <div class="hamburger-icon p-2"><span></span><span></span><span></span></div>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="nutrition.html">NUTRITION</a></li>
+          <li class="nav-item"><a class="nav-link" href="mental-wellness.html">MENTAL WELLNESS</a></li>
+          <li class="nav-item"><a class="nav-link" href="physical-activity.html">PHYSICAL ACTIVITY</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">ABOUT US</a></li>
+          <li class="nav-item"><a class="nav-link login-pill" href="login.html?next=cuestionario.html"><i class="far fa-user"></i> LOG IN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="quizApp" class="question-shell">
+    <div class="quiz-wrap">
+      <div class="quiz-progress">
+        <div class="quiz-topline"><span id="quizStep">Question 1 of 8</span><span>Personalized scoring</span></div>
+        <div class="progress-track"><div id="quizProgressFill" class="progress-fill" style="--progress:0%"></div></div>
+      </div>
+      <section id="questionCard" class="question-card"></section>
+      <section id="quizResult" class="result-card"></section>
+    </div>
+  </main>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
