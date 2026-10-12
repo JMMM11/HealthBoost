@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from nutrition-theme.netlify.app/terms-and-conditions by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jun 2026 16:21:56 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="HEALTHBOOST Terms and Conditions – our policies and legal information.">
   <title>Terms and Conditions — HEALTHBOOST</title>
-  <link rel="icon" href="assets/images/descarga.png" type="image/x-icon">
+  <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
-  <link rel="icon" href="assets/images/nutrition-plan.png">
   <!-- Bootstrap 5 -->
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="../assets/vendor/bootstrap.min.css" rel="stylesheet">
 
 <!-- AOS -->
-<link href="assets/css/aos.css" rel="stylesheet">
+<link href="../assets/vendor/aos.css" rel="stylesheet">
 
 <!-- Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="../assets/css/pages.css" rel="stylesheet">
 </head>
 <body>
 
@@ -43,25 +39,8 @@
   </div>
 </div>
 
-<!-- ========== NAVBAR ========== -->
-  <!-- ========== NAVBAR ========== -->
-  <nav id="mainNav" class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="index.html#hero">HEALTH<span>BOOST</span></a>
-      <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
-        <div class="hamburger-icon p-2"><span></span><span></span><span></span></div>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-          <li class="nav-item"><a class="nav-link" href="nutrition.html">NUTRITION</a></li>
-          <li class="nav-item"><a class="nav-link" href="mental-wellness.html">MENTAL WELLNESS</a></li>
-          <li class="nav-item"><a class="nav-link" href="physical-activity.html">PHYSICAL ACTIVITY</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link login-pill" href="login.html?next=cuestionario.html"><i class="far fa-user"></i> LOG IN</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- ========== NAVBAR (components/navbar.js) ========== -->
+  <script src="../components/navbar.js" data-root="../" data-page="terms-and-conditions"></script>
 
 <!-- ========== PAGE HERO ========== -->
 <section class="page-hero">
@@ -162,114 +141,18 @@
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
-  <footer>
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-4">
-          <div class="footer-brand">Nutri<span>Life</span></div>
-          <p class="footer-desc">Science-backed nutrition coaching to help you live your healthiest, most energized life
-            — one healthy habit at a time.</p>
-          <div class="social-links mt-3">
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-        <div class="col-6 col-lg-2">
-          <div class="footer-title">Programs</div>
-          <ul class="footer-links">
-            <li><a href='weight-loss-program.html'>Weight Loss</a></li>
-            <li><a href='muscle-gain-program.html'>Muscle Gain</a></li>
-            <li><a href='diet-plan.html'>Diabetic Plan</a></li>
-            <li><a href='mental-wellness.html'>Mental Wellness</a></li>
-            <li><a href='physical-activity.html'>Physical Activity</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-lg-2">
-          <div class="footer-title">Company</div>
-          <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="#testimonials">Success Stories</a></li>
-            <li><a href="#recipes">Recipes</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href='blog.html'>Blog</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <div class="footer-title">Newsletter</div>
-          <p style="font-size:14px; margin-bottom:16px;">Get free nutrition tips, healthy recipes, and wellness guides
-            delivered weekly.</p>
-          <form class="newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Your email address">
-            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 HEALTHBOOST. All rights reserved.</span>
-        <span style="display:flex; gap:20px;">
-          <a href='privacy-policy.html'>Privacy Policy</a>
-          <a href='terms-and-conditions.html'>Terms of Service</a>
-          <a href='faq.html'>FAQs</a>
-        </span>
-      </div>
-    </div>
-  </footer>
+  <!-- ========== FOOTER (components/footer.js) ========== -->
+  <script src="../components/footer.js" data-root="../"></script>
 
 <!-- ========== FLOATING BUTTONS ========== -->
-<a href="#contact" id="floatingBook"><i class="far fa-calendar-check"></i> Book Now</a>
+<a href="mental-wellness.html#book-session" id="floatingBook"><i class="far fa-calendar-check"></i> Book Now</a>
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
 <!-- ========== SCRIPTS ========== -->
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/aos.js"></script>
-<script>
-  // ---- PRELOADER ----
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('preloader').classList.add('fade-out');
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.5s ease';
-      setTimeout(() => { document.body.style.opacity = '1'; }, 100);
-    }, 1800);
-  });
-
-  // ---- AOS INIT ----
-  AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
-
-  // ---- NAVBAR SCROLL ----
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-    
-    const btn = document.getElementById('scrollTop');
-    if (window.scrollY > 400) btn.classList.add('visible');
-    else btn.classList.remove('visible');
-  });
-
-  // ---- SMOOTH SCROLL (for any anchor links) ----
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = 70;
-        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
-        const collapse = document.getElementById('navMenu');
-        if (collapse.classList.contains('show')) {
-          bootstrap.Collapse.getOrCreateInstance(collapse).hide();
-        }
-      }
-    });
-  });
-</script>
+<script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/aos.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
-
-<!-- Mirrored from nutrition-theme.netlify.app/terms-and-conditions by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jun 2026 16:21:56 GMT -->
 </html>
 
 

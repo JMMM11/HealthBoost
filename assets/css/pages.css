@@ -127,6 +127,11 @@ h1, h2, h3, .brand-font { font-family: "Playfair Display", serif; }
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: var(--transition);
+  white-space: nowrap;
+}
+/* El menu tiene seis enlaces: en pantallas medianas se compacta para caber en una linea. */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .nav-link { font-size: 14px; padding: 8px 9px !important; }
 }
 #mainNav.scrolled .nav-link { color: var(--blue-dark) !important; }
 .nav-link::after {
@@ -140,17 +145,6 @@ h1, h2, h3, .brand-font { font-family: "Playfair Display", serif; }
   transition: var(--transition);
 }
 .nav-link:hover::after, .nav-link.active::after { left: 16px; right: 16px; }
-.login-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 0;
-  background: transparent;
-  color: var(--white) !important;
-  padding: 8px 16px !important;
-  box-shadow: none;
-}
-.login-pill::after { display: block; }
 .hamburger-icon span { display: block; width: 24px; height: 2px; margin: 5px 0; background: var(--white); transition: var(--transition); }
 #mainNav.scrolled .hamburger-icon span { background: var(--blue-dark); }
 
@@ -289,7 +283,7 @@ body.nav-solid #mainNav .hamburger-icon span { background: var(--white); }
 .area-grid, .cards-grid, .three-grid, .specialist-grid { display: grid; gap: 24px; }
 .area-grid, .three-grid, .specialist-grid { grid-template-columns: repeat(3, 1fr); }
 .cards-grid { grid-template-columns: repeat(2, 1fr); }
-.info-card, .area-card, .goal-card, .resource-card, .specialist-card, .plan-card, .question-card, .login-card {
+.info-card, .area-card, .goal-card, .resource-card, .specialist-card, .plan-card, .question-card {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--white);
@@ -460,16 +454,6 @@ body.nav-solid #mainNav .hamburger-icon span { background: var(--white); }
 }
 .upcoming-card { display: none; margin-top: 22px; padding: 22px; border-radius: var(--radius); background: var(--blue-dark); color: var(--white); }
 
-.login-wrap {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 120px 18px 70px;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(245, 200, 75, 0.18), transparent 28%),
-    linear-gradient(135deg, var(--blue-dark), var(--blue-light));
-}
-.login-card { width: min(100%, 460px); padding: 34px; }
 .field-note, .form-error { min-height: 20px; margin-top: 8px; color: #b42318; font-size: 13px; font-weight: 700; }
 .question-shell {
   min-height: 100vh;
@@ -572,7 +556,7 @@ footer {
   .hero-badge { max-width: 100%; white-space: normal; }
   .hero-actions, .quiz-actions, .result-actions { flex-direction: column; }
   .btn-main, .btn-soft, .btn-ghost, .btn-small { width: 100%; max-width: 100%; white-space: normal; }
-  .question-card, .login-card { padding: 24px; }
+  .question-card { padding: 24px; }
   #floatingBook { display: none; }
 }
 

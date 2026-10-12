@@ -1,38 +1,30 @@
-// ---- PRELOADER ----
-const hidePreloader = () => document.getElementById('preloader')?.classList.add('fade-out');
-window.addEventListener('load', () => setTimeout(hidePreloader, 500));
-setTimeout(hidePreloader, 1200);
+/*
+ * assets/js/home.js
+ * Comportamiento de la pagina de Inicio (index.html).
+ * Los puntos del mapa vienen de data/mockData.js (objeto global HB_DATA).
+ */
 
-// ---- AOS INIT ----
+// ---- ANIMACIONES AL HACER SCROLL (AOS) ----
 AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
 
-// ---- NAVBAR SCROLL ----
+// ---- NAVBAR Y BOTON "VOLVER ARRIBA" ----
 const nav = document.getElementById('mainNav');
+const scrollTopButton = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-  
-  // Scroll-to-top
-  const btn = document.getElementById('scrollTop');
-  if (window.scrollY > 400) btn.classList.add('visible');
-  else btn.classList.remove('visible');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  scrollTopButton.classList.toggle('visible', window.scrollY > 400);
 });
 
-// ---- ACTIVE NAV LINK ----
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link:not(.nav-cta)');
+// ---- ENLACE ACTIVO DEL MENU ----
+// En Inicio solo hay dos anclas en el menu: HOME (#hero) y CONTACT (#contact).
+const contactSection = document.getElementById('contact');
+const anchorLinks = document.querySelectorAll('.nav-link[href^="#"]');
 window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
-  });
-  navLinks.forEach(a => {
-    a.classList.remove('active');
-    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
-  });
+  const activeHash = window.scrollY >= contactSection.offsetTop - 100 ? '#contact' : '#hero';
+  anchorLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === activeHash));
 });
 
-// ---- SMOOTH SCROLL ----
+// ---- SCROLL SUAVE ----
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
@@ -40,7 +32,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       e.preventDefault();
       const offset = 70;
       window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
-      // Close mobile menu
+      // Cierra el menu movil si estaba abierto.
       const collapse = document.getElementById('navMenu');
       if (collapse.classList.contains('show')) {
         bootstrap.Collapse.getOrCreateInstance(collapse).hide();
@@ -49,10 +41,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ---- COUNTERS ----
+// ---- CONTADORES ----
 function animateCount(el) {
   const target = +el.getAttribute('data-count');
-  const suffix = el.parentElement.querySelector('.counter-label')?.textContent.includes('%') ? '+' : '+';
   let count = 0;
   const step = target / 60;
   const timer = setInterval(() => {
@@ -73,7 +64,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 counters.forEach(c => counterObserver.observe(c));
 
-// ---- PROGRESS BARS ----
+// ---- BARRAS DE PROGRESO ----
 const bars = document.querySelectorAll('.progress-bar-fill');
 const barObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -85,7 +76,7 @@ const barObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 bars.forEach(b => barObserver.observe(b));
 
-// ---- SWIPER ----
+// ---- CARRUSEL DE TESTIMONIOS (SWIPER) ----
 new Swiper('.swiper-testimonials', {
   slidesPerView: 1,
   spaceBetween: 24,
@@ -99,26 +90,88 @@ new Swiper('.swiper-testimonials', {
   }
 });
 
-// ---- FORM ----
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const fields = this.querySelectorAll('input[required], textarea[required]');
-  let valid = true;
-  fields.forEach(f => {
-    if (!f.value.trim()) {
-      valid = false;
-      f.style.borderColor = '#e74c3c';
-      setTimeout(() => { f.style.borderColor = ''; }, 2000);
-    }
-  });
-  if (valid) {
-    this.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
-});
-
-// ---- PARALLAX HERO ----
+// ---- PARALLAX DEL HERO ----
 window.addEventListener('scroll', () => {
   const hero = document.getElementById('hero');
   if (hero) hero.style.backgroundPositionY = (window.scrollY * 0.4) + 'px';
+});
+
+// ---- MAPA DE LUGARES (LEAFLET) ----
+function initWellnessMap() {
+  const { center, zoom, locations } = HB_DATA.map;
+  const map = L.map('wellnessMap').setView(center, zoom);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Marcador redondo con un icono de Font Awesome.
+  function createCustomIcon(iconClass, bgColor) {
+    return L.divIcon({
+      className: 'custom-map-marker',
+      html: `<div style="background-color: ${bgColor}; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+               <i class="fas ${iconClass}" style="color: white; font-size: 16px;"></i>
+             </div>`,
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+      popupAnchor: [0, -36]
+    });
+  }
+
+  // Marcadores agrupados por categoria para poder filtrarlos.
+  const markers = {};
+  locations.forEach(loc => {
+    const marker = L.marker([loc.lat, loc.lng], {
+      icon: createCustomIcon(loc.icon, loc.color)
+    }).bindPopup(`<strong>${loc.name}</strong><br>${loc.desc}`);
+
+    if (!markers[loc.category]) markers[loc.category] = [];
+    markers[loc.category].push(marker);
+    marker.addTo(map);
+  });
+
+  // Filtros del mapa: muestra solo la categoria elegida (o todas).
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      for (const [category, markerArray] of Object.entries(markers)) {
+        const visible = filter === 'all' || category === filter;
+        markerArray.forEach(m => {
+          if (visible && !map.hasLayer(m)) map.addLayer(m);
+          if (!visible && map.hasLayer(m)) map.removeLayer(m);
+        });
+      }
+    });
+  });
+}
+
+// ---- FORMULARIO DE CONTACTO ----
+// Solo visual: no se envia nada, se muestra el mensaje de confirmacion.
+function initContactForm() {
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.btn-submit-custom');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      contactForm.style.display = 'none';
+      formSuccess.style.display = 'block';
+      contactForm.reset();
+    }, 1500);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initContactForm();
+  // Si Leaflet no cargo (sin conexion), el resto de la pagina sigue funcionando.
+  if (window.L) initWellnessMap();
 });

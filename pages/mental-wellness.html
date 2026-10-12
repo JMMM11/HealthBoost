@@ -5,39 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="HEALTHBOOST Mind & Balance area for emotional wellness, stress support, habits and sessions with specialists.">
   <title>Mind & Balance - HEALTHBOOST</title>
-  <link rel="icon" href="assets/images/descarga.png" type="image/x-icon">
+  <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/pages.css" rel="stylesheet">
 </head>
 <body>
   <div id="preloader"><div class="preloader-inner"><div class="leaf-anim"><i class="fas fa-spa"></i></div><p>HEALTHBOOST</p><div class="loader-bar"><div class="loader-bar-fill"></div></div></div></div>
-  <!-- ========== NAVBAR ========== -->
-  <nav id="mainNav" class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">H E A L T H<span> B O O S T</span></a>
-      <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
-        <div class="hamburger-icon p-2"><span></span><span></span><span></span></div>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-          <li class="nav-item"><a class="nav-link" href="nutrition.html">NUTRITION</a></li>
-          <li class="nav-item"><a class="nav-link" href="mental-wellness.html">MENTAL WELLNESS</a></li>
-          <li class="nav-item"><a class="nav-link" href="physical-activity.html">PHYSICAL ACTIVITY</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link login-pill" href="login.html?next=cuestionario.html"><i class="far fa-user"></i> LOG IN</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- ========== NAVBAR (components/navbar.js) ========== -->
+  <script src="../components/navbar.js" data-root="../" data-page="mental-wellness"></script>
 
 <section class="mental-hero-final">
 
   
   <img
-    src="assets/images/mental/terapia.jpg"
+    src="../assets/images/mental/hero.jpg"
     alt="Mental wellness consultation"
     class="mental-hero-bg"
   >
@@ -193,9 +177,9 @@
         <p class="section-sub">Each profile can be updated with the professional's real photo, specialty and credentials.</p>
       </div>
       <div class="specialist-grid">
-        <div class="specialist-card"><div class="photo-slot"><img class="editable-image" src="assets/images/Profesional/Jacobo.jpg" alt="Psychology specialist" loading="lazy"></div><h3 class="card-title">Specialist Name</h3><p>Psychologist</p><p>Prepared profile for emotional well-being and stress support.</p><a class="btn-small" href="#">View Profile</a></div>
-        <div class="specialist-card"><div class="photo-slot"><img class="editable-image" src="assets/images/Profesional/Sulay.jpg" alt="Nutrition specialist" loading="lazy"></div><h3 class="card-title">Specialist Name</h3><p>Nutritionist</p><p>Prepared profile for healthy eating and nutrition goals.</p><a class="btn-small" href="#">View Profile</a></div>
-        <div class="specialist-card"><div class="photo-slot"><img class="editable-image" src="assets/images/mental/mentalhelts.jpg" alt="Wellness guide" loading="lazy"></div><h3 class="card-title">Specialist Name</h3><p>Wellness Guide</p><p>Prepared profile for habits, consistency and routines.</p><a class="btn-small" href="#">View Profile</a></div>
+        <div class="specialist-card"><div class="photo-slot"><img class="editable-image" src="../assets/images/team/jacobo.jpg" alt="Psychology specialist" loading="lazy"></div><h3 class="card-title">Specialist Name</h3><p>Psychologist</p><p>Prepared profile for emotional well-being and stress support.</p><a class="btn-small" href="#">View Profile</a></div>
+        <div class="specialist-card"><div class="photo-slot"><img class="editable-image" src="../assets/images/team/sulay.jpg" alt="Nutrition specialist" loading="lazy"></div><h3 class="card-title">Specialist Name</h3><p>Nutritionist</p><p>Prepared profile for healthy eating and nutrition goals.</p><a class="btn-small" href="#">View Profile</a></div>
+        <div class="specialist-card"><div class="photo-slot"><img class="editable-image" src="../assets/images/mental/wellness-guide.jpg" alt="Wellness guide" loading="lazy"></div><h3 class="card-title">Specialist Name</h3><p>Wellness Guide</p><p>Prepared profile for habits, consistency and routines.</p><a class="btn-small" href="#">View Profile</a></div>
       </div>
     </div>
   </section>
@@ -203,28 +187,20 @@
   <section class="section-pad">
     <div class="container">
       <div class="content-media-grid">
-        <div class="content-stack"><div class="media-placeholder wide"><img class="editable-image" src="assets/images/mental/mindful.jpg" alt="Mindful breathing outdoors" loading="lazy"></div><div class="detail-panel"><div class="section-tag">Daily check-in</div><h3>Pause, name, choose</h3><p>Pause for one minute, name what you are feeling and choose one supportive action. The goal is awareness, not perfect control.</p></div></div>
-        <div class="media-placeholder tall"><img class="editable-image" src="assets/images/mental/pause,name.png" alt="Calm wellness routine" loading="lazy"></div>
+        <div class="content-stack"><div class="media-placeholder wide"><img class="editable-image" src="../assets/images/mental/mindful.jpg" alt="Mindful breathing outdoors" loading="lazy"></div><div class="detail-panel"><div class="section-tag">Daily check-in</div><h3>Pause, name, choose</h3><p>Pause for one minute, name what you are feeling and choose one supportive action. The goal is awareness, not perfect control.</p></div></div>
+        <div class="media-placeholder tall"><img class="editable-image" src="../assets/images/mental/pause-name.png" alt="Calm wellness routine" loading="lazy"></div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-5"><div class="footer-brand">HEALTH<span>BOOST</span></div><p class="footer-desc">Nutrition, mental balance and physical activity connected in one platform.</p></div>
-        <div class="col-6 col-lg-3"><div class="footer-title">Areas</div><ul class="footer-links"><li><a href="nutrition.html">Nutrition</a></li><li><a href="mental-wellness.html">Mind & Balance</a></li><li><a href="physical-activity.html">Physical Activity</a></li></ul></div>
-        <div class="col-6 col-lg-2"><div class="footer-title">Flow</div><ul class="footer-links"><li><a href="login.html">Login</a></li><li><a href="cuestionario.html">Questionnaire</a></li><li><a href="weight-loss-program.html">Program</a></li></ul></div>
-        <div class="col-lg-2"><div class="footer-title">Help</div><ul class="footer-links"><li><a href="privacy-policy.html">Privacy</a></li><li><a href="terms-and-conditions.html">Terms</a></li><li><a href="faq.html">FAQs</a></li></ul></div>
-      </div>
-      <div class="footer-bottom"><span>© 2026 HEALTHBOOST. All rights reserved.</span><span>Clean wellness, connected habits.</span></div>
-    </div>
-  </footer>
+  <!-- ========== FOOTER (components/footer.js) ========== -->
+  <script src="../components/footer.js" data-root="../"></script>
   <a href="#book-session" id="floatingBook"><i class="far fa-calendar-check"></i> Book Now</a>
   <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/aos.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="../assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos.js"></script>
+  <script src="../data/mockData.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
 
